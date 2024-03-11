@@ -73,6 +73,27 @@ public class UIManager
         return Util.GetOrAddComponent<T>(go);
     }
     
+    public T MakeWorldSpaceUI<T>(Transform parent = null, string name = null) where T : UI_Base
+    {
+        //이름이 없다면, 컴포넌트 명을 이름으로 한다.
+        if (string.IsNullOrEmpty(name))
+            name = typeof(T).Name;
+        
+        //지정된 경로에서 이름을 토대로 오브젝트를 생성한다.
+        GameObject go = Managers.Resources.Instantiate($"UI/WorldSpace/{name}");
+        
+        //부모 지정
+        if(parent != null)
+            go.transform.SetParent(parent);
+
+        Canvas canvas = go.GetOrAddComponent<Canvas>();
+        canvas.renderMode = RenderMode.WorldSpace;
+        canvas.worldCamera = Camera.main;
+        
+        //컴포넌트가 없다면 컴포넌트 생성후 컴포넌트를 리턴한다.
+        return Util.GetOrAddComponent<T>(go);
+    }
+    
     /// <summary>
     /// 씬UI 생성용 함수
     /// </summary>

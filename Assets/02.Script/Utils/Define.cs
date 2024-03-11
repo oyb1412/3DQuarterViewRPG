@@ -1,5 +1,11 @@
 public class Define 
 {
+    public enum Layer
+    {
+        Monster = 6,
+        Ground = 7,
+        Block = 9
+    }
     public enum Scene
     {
         Unknown,
@@ -16,12 +22,14 @@ public class Define
     }
     public enum MouseEvent
     {
-        PRESS,
-        CLICK,
+        Press,
+        Click,
+        PointerDown,
+        PointerUp,
     }
     public enum CameraMode
     {
-        QUARTER_VIEW,
+        Quarterview,
     }
 
     public enum UIEvent

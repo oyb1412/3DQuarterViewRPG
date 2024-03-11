@@ -9,10 +9,10 @@ public interface ILorder<Key, Value>
 }
 public class DataManager
 {
-    public Dictionary<int, Stat> dictData { get; private set; } = new Dictionary<int, Stat>();
+    public Dictionary<int, Data.Stat> dictData { get; private set; } = new Dictionary<int, Data.Stat>();
     public void Init()
     {
-        dictData = LoadJson<StatData, int, Stat>("statData").MakeDict();
+        dictData = LoadJson<Data.StatData, int, Data.Stat>("statData").MakeDict();
     }
     
     private T LoadJson<T, Key, Value>(string path) where T : ILorder<Key, Value>

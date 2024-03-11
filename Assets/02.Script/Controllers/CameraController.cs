@@ -7,7 +7,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]private GameObject _player;
-    [SerializeField]private Define.CameraMode _mode = Define.CameraMode.QUARTER_VIEW;
+    [SerializeField]private Define.CameraMode _mode = Define.CameraMode.Quarterview;
     [SerializeField]private Vector3 _delta;
     
     /// <summary>
@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         //카메라의 모드가 쿼터뷰 모드일때
-        if (_mode == Define.CameraMode.QUARTER_VIEW)
+        if (_mode == Define.CameraMode.Quarterview)
         {
             //플레이어 위치를 기반으로, 카메라 방향으로, 둘 사이의 거리만큼, 벽 대상으로만 작동하는 레이캐스트를 쏜다.
             //레이캐스트가 적중하면, 플레이어가 벽에 가려져서 카메라에 비추지 않는 상태라는 뜻이 된다.

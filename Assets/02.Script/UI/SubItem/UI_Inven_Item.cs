@@ -15,11 +15,7 @@ public class UI_Inven_Item : UI_Base
         ItemIcon,
         ItemNameText,
     }
-    private void Start()
-    {
-        Init();
-    }
-
+ 
     public override void Init()
     {
         Bind<GameObject>(typeof(GameObjects));

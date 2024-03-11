@@ -12,7 +12,8 @@ public class InputManager
     public Action<Define.MouseEvent> MouseAction = null;
     //현재 마우스가 눌리고 있나?
     private bool _pressed = false;
-    
+
+    private float _pressTime;
     //Manager의 Update에서 실행할 함수
     public void OnUpdate()
     {
@@ -27,18 +28,28 @@ public class InputManager
         //마우스 왼쪽클릭을 했으면
         if (Input.GetMouseButton(0))
         {
+            if (!_pressed)
+            {
+                MouseAction?.Invoke(Define.MouseEvent.PointerDown);
+                _pressTime = Time.time;
+            }
             //마우스 액션에 Press타입을 넣어 실행한다.
-            MouseAction?.Invoke(Define.MouseEvent.PRESS);
+            MouseAction?.Invoke(Define.MouseEvent.Press);
             //현재 Press중
             _pressed = true;
         }
         else
         {
             //현재 Press중이면 마우스 액션에 Click타입을 넣어 실행한다.
-            if(_pressed)
-                MouseAction?.Invoke(Define.MouseEvent.CLICK);
+            if (_pressed)
+            {
+                if(Time.time < _pressTime + .2f)
+                    MouseAction?.Invoke(Define.MouseEvent.Click);
+                MouseAction?.Invoke(Define.MouseEvent.PointerUp);
+            }
             //Press중 해제
             _pressed = false;
+            _pressTime = 0;
         }
     }
 
