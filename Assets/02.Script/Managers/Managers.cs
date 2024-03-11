@@ -14,17 +14,21 @@ public class Managers : MonoBehaviour
         get {return s_instance;}
     }
     
+    private DataManager _data = new DataManager();
     private InputManager _input = new InputManager();
     private ResourceManager _resources = new ResourceManager();
     private UIManager _ui = new UIManager();
     private SceneManagerEX _scene = new SceneManagerEX();
     private SoundManager _sound = new SoundManager();
+    private PoolManager _pool = new PoolManager();
 
+    public static DataManager Data{ get { return Instance._data; }}
     public static InputManager Input{ get { return Instance._input; }}
     public static ResourceManager Resources { get { return Instance._resources; }}
     public static UIManager UI { get { return Instance._ui; } }
     public static SceneManagerEX Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
+    public static PoolManager Pool { get { return Instance._pool; } }
 
     private void Awake()
     {
@@ -56,6 +60,12 @@ public class Managers : MonoBehaviour
             
             //Sound의 초기화를 진행한다.
             s_instance._sound.Init();
+            
+            //Pool 초기화
+            s_instance._pool.Init();
+            
+            //데이터 초기화
+            s_instance._data.Init();
         }
     }
 
@@ -68,5 +78,7 @@ public class Managers : MonoBehaviour
         Input.Clear();
         Scene.Clear();
         UI.Clear();
+        
+        Pool.Clear();
     }
 }

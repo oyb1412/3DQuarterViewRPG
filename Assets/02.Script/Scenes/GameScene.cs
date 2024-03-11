@@ -13,8 +13,6 @@ public class GameScene : BaseScene
     {
         base.Init();
         SceneType = Define.Scene.Game;
-        Managers.UI.ShowSceneUI<UI_Inven>();
-        Managers.UI.ShowPopupUI<UI_Button>();
     }
 
     public override void Clear()
