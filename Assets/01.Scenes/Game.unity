@@ -1907,7 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1482339280}
   _mode: 0
-  _delta: {x: 0, y: 9, z: 8}
+  _delta: {x: 0, y: 14, z: 12}
 --- !u!81 &366250874
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1976,7 +1976,7 @@ Transform:
   m_GameObject: {fileID: 366250872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.92387956, z: -0.38268343, w: 0}
-  m_LocalPosition: {x: 0, y: 9.03, z: 8.22}
+  m_LocalPosition: {x: 0, y: 13.94, z: 11.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9333,12 +9333,12 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.35
+  m_Height: 1.55
   m_Direction: 1
-  m_Center: {x: 0, y: 0.49, z: 0}
+  m_Center: {x: 0, y: 0.76, z: 0}
 --- !u!1001 &1482692928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10016,7 +10016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172672584360957253, guid: a42a8b9d59f516249b6b37a80c0af1c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 172672584360957253, guid: a42a8b9d59f516249b6b37a80c0af1c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10056,7 +10056,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 8d1f2632de14fee4888fc62e783e79a2, type: 2}
     - target: {fileID: 3759920490506698634, guid: a42a8b9d59f516249b6b37a80c0af1c1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
