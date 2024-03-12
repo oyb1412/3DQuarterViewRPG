@@ -9,7 +9,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]private GameObject _player;
     [SerializeField]private Define.CameraMode _mode = Define.CameraMode.Quarterview;
     [SerializeField]private Vector3 _delta;
-    
+
+    public void SetPlayer(GameObject go){ _player = go;}
     /// <summary>
     /// 카메라의 위치를 플레이어 위치를 기반으로 조정
     /// </summary>
@@ -18,10 +19,12 @@ public class CameraController : MonoBehaviour
         //카메라의 모드가 쿼터뷰 모드일때
         if (_mode == Define.CameraMode.Quarterview)
         {
+            if (Util.IsValid(_player) == false)
+                return;
             //플레이어 위치를 기반으로, 카메라 방향으로, 둘 사이의 거리만큼, 벽 대상으로만 작동하는 레이캐스트를 쏜다.
             //레이캐스트가 적중하면, 플레이어가 벽에 가려져서 카메라에 비추지 않는 상태라는 뜻이 된다.
             if (Physics.Raycast(_player.transform.position, _delta, out var hit, _delta.magnitude,
-                    LayerMask.GetMask("Wall")))
+                    LayerMask.GetMask("Block")))
             {
                 //레이가 적중한 위치와 플레이어간의 거리보다 약간 짧은 거리를 지정한다.
                 float dist = (hit.point - _player.transform.position).magnitude * .8f;

@@ -26,6 +26,11 @@ public class Util
         else
             return null;
     }
+
+    public static bool IsValid(GameObject go)
+    {
+        return go != null || go.activeSelf;
+    }
     
     /// <summary>
     /// go오브젝트의 자식 오브젝트중 name과 동일한 이름의 오브젝트를 찾는 함수

@@ -14,6 +14,10 @@ public class GameScene : BaseScene
         base.Init();
         SceneType = Define.Scene.Game;
         gameObject.GetOrAddComponent<CursorController>();
+
+        GameObject player = Managers.Game.Spawn(Define.WorldObject.Player, "Masa");
+        Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
+        Camera.main.gameObject.GetComponent<CameraController>().SetPlayer(player);
     }
 
     public override void Clear()

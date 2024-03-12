@@ -1,5 +1,18 @@
 public class Define 
 {
+    public enum WorldObject
+    {
+        Unknown,
+        Player,
+        Monster
+    }
+    public enum State
+    {
+        Die,
+        Idle,
+        Moving,
+        Skill,
+    }
     public enum Layer
     {
         Monster = 6,
